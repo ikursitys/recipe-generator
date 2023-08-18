@@ -1,0 +1,18 @@
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #48555b;
+  text-transform: uppercase;
+  letter-spacing: 2.3px;
+}
+
+.title span {
+  color: #fcba7e;
+}
+.title p {
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  display: block;
+  width: 400px;
+}

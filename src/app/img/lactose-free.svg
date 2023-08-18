@@ -1,0 +1,12 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M203 63V101" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M288 110V148" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M214 110V148" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M298 63V101.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M204 63L297 63" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M169 433H332M204.5 288.5V262.5M204.5 387.5L204.5 329" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M214 147V147C214 152.94 212.817 158.821 210.519 164.3L207.5 171.5L202 185L178.297 234.528C171.848 248.005 168.5 262.755 168.5 277.696V433" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M288 147V147C288 152.94 289.183 158.821 291.481 164.3L294.5 171.5L300 185L323.703 234.528C330.152 248.005 333.5 262.755 333.5 277.696V433" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M492.5 250C492.5 383.929 383.929 492.5 250 492.5C116.071 492.5 7.5 383.929 7.5 250C7.5 116.071 116.071 7.5 250 7.5C383.929 7.5 492.5 116.071 492.5 250Z" stroke="#FCBA7E" stroke-width="15"/>
+<path d="M80 77L422 419" stroke="#FCBA7E" stroke-width="15" stroke-linecap="round"/>
+</svg>

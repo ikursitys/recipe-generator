@@ -1,0 +1,41 @@
+.meal {
+  min-height: 450px;
+  margin: 77px 50px;
+}
+
+/* .meal h1 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #48555b;
+  text-transform: uppercase;
+  letter-spacing: 2.3px;
+}
+
+.meal h1 span {
+  color: #fcba7e;
+}
+.meal p {
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  display: block;
+  width: 400px;
+} */
+
+.meals {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  height: 120px;
+  width: 120px;
+  margin: 40px auto;
+}
+
+.button {
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 40px;
+}

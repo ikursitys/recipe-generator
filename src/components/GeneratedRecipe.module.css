@@ -1,0 +1,23 @@
+.recipes {
+  min-height: 450px;
+  margin: 50px 50px;
+}
+
+.recipes h1 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #48555b;
+  text-transform: uppercase;
+  letter-spacing: 2.3px;
+}
+
+.recipes h1 span {
+  color: #fcba7e;
+}
+
+.buttons {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+}

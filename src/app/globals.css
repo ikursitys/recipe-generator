@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@400;700&display=swap");
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+
+/* 
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -14,14 +18,31 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: black;
+  background-color: #fff;
+
+  font-family: "Open Sans", "Lato", sans-serif;
+}
+
+h2 {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  width: auto;
+  color: #fcba7e;
+  text-transform: uppercase;
+  letter-spacing: 2.3px;
+  margin-top: 10px;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  display: block;
+  width: 400px;
+  text-transform: uppercase;
 }

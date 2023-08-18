@@ -1,0 +1,35 @@
+.badge {
+  width: 150px;
+  height: 40px;
+  background-color: #979797;
+  color: white;
+  margin: 0 auto;
+}
+
+/* .badge :hover {
+  background-color: #fcba7e;
+  width: 150px;
+  height: 40px;
+} */
+
+.badge input {
+  display: none;
+}
+
+.badge label {
+  display: flex;
+  height: inherit;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.badge label:hover {
+  background-color: #fcba7e;
+}
+
+.badge input:checked + label {
+  background-color: #fcba7e;
+}

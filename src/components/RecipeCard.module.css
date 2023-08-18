@@ -1,0 +1,59 @@
+.recipe {
+  height: auto;
+  width: inherit;
+  /* border: 1px solid #e6e6e6; */
+  overflow: auto;
+  padding: 20px;
+  /* 
+  margin: 20px 20px; */
+}
+
+.recipe h2 {
+  font-weight: 700;
+  font-size: 14px;
+  color: #fcba7e;
+  text-transform: uppercase;
+  letter-spacing: 2.3px;
+  margin-top: 10px;
+}
+
+/* .recipe h3 {
+  font-weight: 700;
+  font-size: 11px;
+  color: #fcba7e;
+  text-transform: uppercase;
+  letter-spacing: 2.3px;
+  margin-top: 10px;
+} */
+
+.recipe li {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: #272e31;
+}
+
+.recipe ul {
+  list-style-type: none;
+  margin: 10px 10px;
+}
+
+/* .recipe ul li {
+  text-indent: 20px;
+} */
+
+.ingredients ul {
+  list-style-type: none;
+  margin: 10px 10px;
+}
+.ingredients ul li::before {
+  display: inline-block;
+
+  /* text-indent: 10px; */
+  content: "\2014\a0";
+}
+
+.recipe ol {
+  list-style-type: decimal;
+  margin: 10px 25px;
+}

@@ -1,0 +1,20 @@
+.button {
+  width: 150px;
+  height: 40px;
+  background-color: #575a5b;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #fcba7e;
+}
+
+.disabled {
+  background-color: #e6e6e6;
+}
+
+.disabled:hover {
+  background-color: #e6e6e6;
+}

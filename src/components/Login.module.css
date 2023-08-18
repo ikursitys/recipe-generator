@@ -1,0 +1,37 @@
+.login {
+  min-height: 200px;
+  margin: 77px 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .login h1 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #fcba7e;
+  text-transform: uppercase;
+  letter-spacing: 2.3px;
+}
+
+.login p {
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+
+  width: 400px;
+}
+
+.login input {
+  display: block;
+  height: 40px;
+  width: 30%;
+  margin: 0 0 40px 0;
+  border: 1px solid #e6e6e6;
+  padding-left: 10px;
+} */
+
+.buttons {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+}

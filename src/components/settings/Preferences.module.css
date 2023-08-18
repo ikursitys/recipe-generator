@@ -1,0 +1,19 @@
+.preferences {
+  min-height: 200px;
+  margin: 77px 50px;
+}
+
+.preferences input {
+  display: block;
+  height: 40px;
+  width: 65%;
+  margin: 100px 0 40px 0;
+  border: 1px solid #e6e6e6;
+  padding-left: 10px;
+}
+
+.buttons {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,27 @@
+.about {
+  min-height: 200px;
+  margin: 77px 50px;
+}
+
+/* .about h2 {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  width: auto;
+  color: #fcba7e;
+  text-transform: uppercase;
+  letter-spacing: 2.3px;
+  margin-top: 10px;
+  
+} */
+.about h2:last-of-type {
+  margin-bottom: 40px;
+}
+
+.about p {
+  margin: 40px 0;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  color: #272e31;
+}
