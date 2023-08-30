@@ -3,25 +3,6 @@
   margin: 77px 50px;
 }
 
-/* .meal h1 {
-  font-weight: 700;
-  font-size: 18px;
-  color: #48555b;
-  text-transform: uppercase;
-  letter-spacing: 2.3px;
-}
-
-.meal h1 span {
-  color: #fcba7e;
-}
-.meal p {
-  font-weight: 400;
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  display: block;
-  width: 400px;
-} */
-
 .meals {
   margin: 20px 0;
   display: flex;
@@ -38,4 +19,26 @@
   width: 150px;
   margin: 0 auto;
   margin-top: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .image {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .meals {
+    display: block;
+  }
+  .image {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+  }
+  .button {
+    margin: 0 auto;
+  }
 }

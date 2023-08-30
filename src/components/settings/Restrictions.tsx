@@ -1,6 +1,6 @@
 "use client";
 
-import Badge from "../../components/UI/Badge";
+import Badge from "../UI/Badge/Badge";
 import Card from "../../components/UI/Card";
 import { useRequestContext } from "../../context/requestContext";
 import Link from "next/link";

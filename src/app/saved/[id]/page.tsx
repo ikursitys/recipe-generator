@@ -66,7 +66,7 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
 
       const res = await response.json();
       console.log(res);
-      router.push("/profile");
+      router.push("/saved");
     } catch (e) {
       console.log(e);
     }

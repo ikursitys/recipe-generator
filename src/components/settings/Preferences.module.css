@@ -17,3 +17,18 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 400px) {
+  .preferences input {
+    display: block;
+    height: 40px;
+    width: 100%;
+    margin: 40px 0 40px 0;
+    border: 1px solid #e6e6e6;
+    padding-left: 10px;
+  }
+  .buttons {
+    display: block;
+    width: 100%;
+  }
+}

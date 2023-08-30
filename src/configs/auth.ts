@@ -80,7 +80,7 @@ export const authConfig: AuthOptions = {
       return true;
     },
     async redirect({ url, baseUrl }) {
-      return "http://localhost:3000/recipes";
+      return "http://localhost:3000/recipe";
     },
   },
 };

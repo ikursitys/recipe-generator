@@ -1,13 +1,13 @@
 import classes from "./Button.module.css";
 
-interface Button {
+interface ButtonProps {
   children: string;
   type?: "button" | "submit";
   handleClick?: () => void;
   disabled?: boolean;
 }
 
-const Button = ({ children, disabled, type, handleClick }: Button) => {
+const Button = ({ children, disabled, type, handleClick }: ButtonProps) => {
   return (
     <button
       className={`${classes.button} ${disabled ? classes.disabled : ""}`}

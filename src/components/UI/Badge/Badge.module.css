@@ -6,12 +6,6 @@
   margin: 0 auto;
 }
 
-/* .badge :hover {
-  background-color: #fcba7e;
-  width: 150px;
-  height: 40px;
-} */
-
 .badge input {
   display: none;
 }
@@ -32,4 +26,21 @@
 
 .badge input:checked + label {
   background-color: #fcba7e;
+}
+
+@media screen and (max-width: 768px) {
+  .badge {
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .badge {
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+    margin: 0;
+  }
 }
