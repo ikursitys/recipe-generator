@@ -7,7 +7,7 @@ import { Card } from "./UI";
 import classes from "./GeneratedRecipe.module.css";
 import { Button } from "./UI";
 import RecipeCard from "./RecipeCard";
-import { useRecipeContext } from "../context/recipeContext";
+
 import { convertRecipe } from "../utils/recipeConverter";
 import { Title } from "./UI";
 import { useSession } from "next-auth/react";
@@ -17,12 +17,6 @@ import { useCallback, useEffect, useState } from "react";
 import { Modal } from "./UI";
 import { useCompletion } from "ai/react";
 import { Loader } from "./UI";
-
-// interface Recipe {
-//   recipeTitle: string;
-//   recipeIngredients: string[];
-//   recipeInstructions: string[];
-// }
 
 const GeneratedRecipe = () => {
   const {
@@ -38,24 +32,10 @@ const GeneratedRecipe = () => {
 
   const ingredientsStr = ingredients.join(", ");
   const restrictionsStr = restrictions.join(", ");
-  // const {
-  //   recipeTitle,
-  //   recipeIngredients,
-  //   recipeInstructions,
-  //   setRecipeTitle,
-  //   setRecipeIngredients,
-  //   setRecipeInstructions,
-  // } = useRecipeContext();
 
   const [recipeTitle, setRecipeTitle] = useState<string>("");
   const [recipeIngredients, setRecipeIngredients] = useState<string[]>([]);
   const [recipeInstructions, setRecipeInstructions] = useState<string[]>([]);
-
-  // const [recipe, setRecipe] = useState<Recipe>({
-  //   recipeTitle: "",
-  //   recipeIngredients: [],
-  //   recipeInstructions: [],
-  // });
 
   const session = useSession();
   const router = useRouter();
@@ -69,9 +49,6 @@ const GeneratedRecipe = () => {
 
   const isRecipe = recipeTitle && recipeIngredients && recipeInstructions;
 
-  // console.log(recipeIngredients);
-  // console.log(recipeInstructions);
-  // const isRequest = meal || ingredients || restrictions || preferences;
   const isPrompt = !!(meal || ingredientsStr || restrictionsStr || preferences);
 
   const prompt = `Write a recipe for ${meal} with ${ingredientsStr}. The meal has to be ${restrictionsStr} and ${preferences}. Write 'Recipe:' before the recipe title. Write '###' after each cooking instruction, please`;

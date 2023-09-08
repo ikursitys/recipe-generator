@@ -18,3 +18,9 @@
   width: 33%;
   /* z-index: 30; */
 }
+
+@media screen and (max-width: 576px) {
+  .overlay {
+    width: 80%;
+  }
+}

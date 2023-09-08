@@ -1,7 +1,7 @@
-.preferences {
+/* .preferences {
   min-height: 200px;
   margin: 77px 50px;
-}
+} */
 
 .preferences input {
   display: block;
@@ -18,7 +18,7 @@
   justify-content: space-between;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 576px) {
   .preferences input {
     display: block;
     height: 40px;
@@ -30,5 +30,8 @@
   .buttons {
     display: block;
     width: 100%;
+  }
+  .buttons a:first-child button {
+    background-color: #575a5b;
   }
 }

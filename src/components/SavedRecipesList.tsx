@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { useEffect, useState } from "react";
-import Loader from "./UI/Loader";
+import { Loader } from "./UI";
 
 const SavedRecipesList = () => {
   const [recipes, setRecipes] = useState<any[]>([]);

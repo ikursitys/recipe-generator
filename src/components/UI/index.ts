@@ -1,6 +1,6 @@
-export * as Badge from "./Badge";
-export * as Button from "./Button";
-export * as Card from "./Card";
-export * as Loader from "./Loader";
-export * as Modal from "./Modal";
-export * as Title from "./Title";
+export { Badge } from "./Badge";
+export { Button } from "./Button";
+export { Card } from "./Card";
+export { Loader } from "./Loader";
+export { Modal } from "./Modal";
+export { Title } from "./Title";

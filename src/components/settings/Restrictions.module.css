@@ -1,7 +1,7 @@
-.restrictions {
+/* .restrictions {
   min-height: 450px;
   margin: 77px 50px;
-}
+} */
 
 .restrictions-cards {
   margin: 20px 0;
@@ -29,17 +29,20 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 576px) {
   .restrictions-cards {
     display: block;
   }
   .image {
-    width: 50px;
-    height: 50px;
-    margin: 0;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 0 0 1rem;
   }
   .buttons {
     margin: 0 auto;
     display: block;
+  }
+  .buttons a:first-child button {
+    background-color: #575a5b;
   }
 }

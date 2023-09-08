@@ -1,7 +1,7 @@
-.meal {
+/* .meal {
   min-height: 450px;
-  margin: 77px 50px;
-}
+  margin: 4.8rem 3rem;
+} */
 
 .meals {
   margin: 20px 0;
@@ -29,14 +29,14 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 576px) {
   .meals {
-    display: block;
+    flex-direction: column;
   }
   .image {
-    width: 50px;
-    height: 50px;
-    margin: 0;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 0 0 1rem;
   }
   .button {
     margin: 0 auto;

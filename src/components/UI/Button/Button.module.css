@@ -19,10 +19,12 @@
   background-color: #e6e6e6;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 576px) {
   .button {
     width: 100%;
     height: 50px;
     margin-top: 20px;
+    background-color: #fcba7e;
+    border: solid #e6e6e6;
   }
 }

@@ -1,11 +1,11 @@
 "use client";
-import RecipeCard from "@/components/RecipeCard";
+import RecipeCard from "../../../components/RecipeCard";
 
-import Button from "@/components/UI/Button";
-import Card from "@/components/UI/Card";
-import Loader from "@/components/UI/Loader";
-import Modal from "@/components/UI/Modal";
-import Title from "@/components/UI/Title";
+import { Button } from "../../../components/UI";
+import { Card } from "../../../components/UI";
+import { Loader } from "../../../components/UI";
+import { Modal } from "../../../components/UI";
+import { Title } from "../../../components/UI";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 

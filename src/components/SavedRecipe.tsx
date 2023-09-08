@@ -1,7 +1,7 @@
 "use client";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
-import Title from "./UI/Title";
-import Card from "./UI/Card";
+import { Title } from "./UI/";
+import { Card } from "./UI/";
 import classes from "./SavedRecipe.module.css";
 import RecipeCard from "./RecipeCard";
 

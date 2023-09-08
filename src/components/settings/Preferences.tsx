@@ -1,15 +1,13 @@
 "use client";
 import { useRequestContext } from "../../context/requestContext";
-import { useCompletion } from "ai/react";
+
 import Link from "next/link";
-import { useRef, useState, useCallback } from "react";
-import { useRecipeContext } from "../../context/recipeContext";
-import { convertRecipe } from "../../utils/recipeConverter";
-import Title from "../UI/Title";
+import { useRef } from "react";
+
+import { Title } from "../UI/Title";
+import { Button } from "../UI";
 
 import classes from "./Preferences.module.css";
-import Button from "../UI/Button";
-import Card from "../UI/Card";
 
 const Preferences = () => {
   const { restrictions, setPreferences } = useRequestContext();

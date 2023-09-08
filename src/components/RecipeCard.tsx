@@ -1,5 +1,5 @@
 import classes from "./RecipeCard.module.css";
-import Title from "./UI/Title";
+import { Title } from "./UI";
 
 interface Recipe {
   title: string;

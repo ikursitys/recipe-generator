@@ -20,4 +20,4 @@ const Button = ({ children, disabled, type, handleClick }: ButtonProps) => {
   );
 };
 
-export default Button;
+export { Button };

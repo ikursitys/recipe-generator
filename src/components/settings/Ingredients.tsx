@@ -3,10 +3,10 @@
 import { useRequestContext } from "../../context/requestContext";
 import Link from "next/link";
 import { useRef } from "react";
-import Button from "../UI/Button";
+import { Button } from "../UI";
 
 import classes from "./Ingredients.module.css";
-import Title from "../UI/Title";
+import { Title } from "../UI";
 
 const IngredientsSelection = () => {
   const { meal, ingredients, setIngredients } = useRequestContext();
