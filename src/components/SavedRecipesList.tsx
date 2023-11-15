@@ -20,7 +20,6 @@ const SavedRecipesList = () => {
         const recipes = await response.json();
         setRecipes(recipes);
         setIsLoading(false);
-        console.log(recipes);
       } catch (e) {
         console.log(e);
       }

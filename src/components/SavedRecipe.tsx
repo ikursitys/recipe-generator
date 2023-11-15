@@ -12,7 +12,6 @@ interface SavedRecipe {
 }
 
 const SavedRecipe = ({ recipe }: { recipe: SavedRecipe }) => {
-  console.log(recipe);
   const { title, ingredients, instructions } = recipe;
   return (
     <RecipeCard

@@ -13,7 +13,7 @@ import { Title } from "./UI";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Modal } from "./UI";
 import { useCompletion } from "ai/react";
 import { Loader } from "./UI";
@@ -57,7 +57,6 @@ const GeneratedRecipe = () => {
     async (prompt: string) => {
       setIsLoading(true);
       const completion = await complete(prompt);
-      console.log(prompt);
 
       if (!completion) throw new Error("Failed to generate");
 
@@ -79,23 +78,28 @@ const GeneratedRecipe = () => {
   );
 
   useEffect(() => {
-    console.log(444444, recipeTitle);
     if (isPrompt) {
       generateRecipe(prompt);
     } else if (localStorage.getItem("recipe")) {
       const loadedRecipe = JSON.parse(localStorage.getItem("recipe")!);
-      console.log(loadedRecipe);
+
       setRecipeTitle(loadedRecipe.recipeTitle);
       setRecipeIngredients(loadedRecipe.recipeIngredients);
       setRecipeInstructions(loadedRecipe.recipeInstructions);
     }
   }, []);
 
+  const readyToUse = useMemo(
+    () => isRecipe && !isLoading && isPrompt,
+    [isRecipe, isLoading, isPrompt]
+  );
+
   const onSaveRecipe = async () => {
     if (!session.data) {
       router.push("/login");
       return;
     }
+
     if (isRecipe && session.data) {
       const userData = session.data;
       try {
@@ -109,12 +113,9 @@ const GeneratedRecipe = () => {
             userData,
           }),
         });
-        console.log("saved");
-        const recipe = await response.json();
-        console.log(recipe);
-        setShowAlert(true);
 
-        // router.push("/profile");
+        const recipe = await response.json();
+        setShowAlert(true);
       } catch (e: any) {
         console.log(e);
       }
@@ -131,7 +132,7 @@ const GeneratedRecipe = () => {
   return (
     <section className={classes.recipes}>
       {isLoading && <Loader />}
-      {isRecipe && !isLoading && isPrompt && (
+      {readyToUse && (
         <Title>
           <h1>
             Here&apos;s what we found for your <span>{meal}</span>{" "}
@@ -168,9 +169,9 @@ const GeneratedRecipe = () => {
             instructions={recipeInstructions}
           />
           <div className={classes.buttons}>
-            <Button handleClick={onSaveRecipe}>Save</Button>
+            <Button onClick={onSaveRecipe}>Save</Button>
             <Link href="/meal">
-              <Button handleClick={onClear}>Try again</Button>
+              <Button onClick={onClear}>Try again</Button>
             </Link>
           </div>
         </Card>
@@ -192,13 +193,13 @@ const GeneratedRecipe = () => {
         </Title>
         <div className="flex justify-around mt-20">
           <Button
-            handleClick={() => {
+            onClick={() => {
               router.push("/saved");
             }}
           >
             My recipes
           </Button>
-          <Button handleClick={() => setShowAlert(false)}>Close</Button>
+          <Button onClick={() => setShowAlert(false)}>Close</Button>
         </div>
       </Modal>
     </section>

@@ -34,7 +34,6 @@ const Restrictions = () => {
   };
 
   const setRestrictionsHandler = () => {
-    console.log(checkedRestrictions);
     setRestrictions(checkedRestrictions);
   };
 

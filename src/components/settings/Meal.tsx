@@ -26,7 +26,7 @@ const MealSelection = () => {
 
   const changeMealHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    console.log(value);
+
     setEnteredMeal(value);
     setDisabled(false);
   };
@@ -89,7 +89,7 @@ const MealSelection = () => {
       </div>
 
       <div className={classes.button}>
-        <Button handleClick={setMealHandler} disabled={disabled}>
+        <Button onClick={setMealHandler} disabled={disabled}>
           Next
         </Button>
       </div>

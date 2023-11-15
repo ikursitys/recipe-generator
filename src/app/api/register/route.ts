@@ -7,7 +7,6 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, password } = body;
-    console.log(body);
 
     if (!name || !email || !password) {
       return new NextResponse("Missing name, email or password", {
@@ -27,8 +26,6 @@ export async function POST(request: NextRequest) {
       email: body.email,
       password: body.password,
     });
-
-    
 
     return NextResponse.json(user);
   } catch (error) {

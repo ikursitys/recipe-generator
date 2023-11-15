@@ -14,10 +14,8 @@ const IngredientsSelection = () => {
 
   const ingredientsHandler = () => {
     const enteredText = ingredientsRef.current!.value;
-    console.log(enteredText);
 
     const ingredientsArray = enteredText.split(",").map((el) => el.trim());
-    console.log(ingredientsArray);
 
     setIngredients(ingredientsArray);
   };

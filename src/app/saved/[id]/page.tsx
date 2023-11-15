@@ -43,7 +43,7 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
         );
 
         const recipe = await response.json();
-        console.log(recipe);
+
         setSavedRecipe(recipe);
         setIsLoading(false);
       } catch (e) {
@@ -65,7 +65,7 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
       });
 
       const res = await response.json();
-      console.log(res);
+
       router.push("/saved");
     } catch (e) {
       console.log(e);
@@ -83,7 +83,7 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
             instructions={savedRecipe.instructions}
           />
           <Button
-            handleClick={() => {
+            onClick={() => {
               setShowConfirmation(true);
             }}
           >
@@ -99,9 +99,9 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
           Are you sure you want to <span>remove this recipe?</span>
         </Title>
         <div className="flex justify-around mt-20">
-          <Button handleClick={onDelete}>Yes</Button>
+          <Button onClick={onDelete}>Yes</Button>
           <Button
-            handleClick={() => {
+            onClick={() => {
               setShowConfirmation(false);
             }}
           >

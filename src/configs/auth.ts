@@ -57,8 +57,6 @@ export const authConfig: AuthOptions = {
       return session;
     },
     async signIn({ profile }: { profile?: Profile }) {
-      console.log(profile);
-
       if (profile) {
         try {
           await startDb();
@@ -80,7 +78,7 @@ export const authConfig: AuthOptions = {
       return true;
     },
     async redirect({ url, baseUrl }) {
-      return "http://localhost:3000/recipe";
+      return `${process.env.NEXTAUTH_URL}/recipe`;
     },
   },
 };

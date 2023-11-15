@@ -9,7 +9,6 @@ import { redirect } from "next/navigation";
 const SavedRecipes = async () => {
   const session = await getServerSession(authConfig);
 
-  console.log(session);
   if (!session) {
     redirect("/login");
   }

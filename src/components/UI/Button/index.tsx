@@ -1,19 +1,17 @@
 import classes from "./Button.module.css";
 
-interface ButtonProps {
-  children: string;
-  type?: "button" | "submit";
-  handleClick?: () => void;
-  disabled?: boolean;
-}
-
-const Button = ({ children, disabled, type, handleClick }: ButtonProps) => {
+const Button = ({
+  children,
+  disabled,
+  type,
+  onClick,
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
     <button
       className={`${classes.button} ${disabled ? classes.disabled : ""}`}
       type={type}
       disabled={disabled}
-      onClick={handleClick}
+      onClick={onClick}
     >
       {children}
     </button>
