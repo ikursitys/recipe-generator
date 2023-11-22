@@ -1,26 +1,6 @@
-.restrictions {
+/* .restrictions {
   min-height: 450px;
   margin: 77px 50px;
-}
-
-/* .restrictions h1 {
-  font-weight: 700;
-  font-size: 18px;
-  color: #48555b;
-  text-transform: uppercase;
-  letter-spacing: 2.3px;
-}
-
-.restrictions h1 span {
-  color: #fcba7e;
-}
-
-.restrictions p {
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  display: block;
-  width: 400px;
 } */
 
 .restrictions-cards {
@@ -39,4 +19,30 @@
   margin: 40px 50px;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .image {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .restrictions-cards {
+    display: block;
+  }
+  .image {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 0 0 1rem;
+  }
+  .buttons {
+    margin: 0 auto;
+    display: block;
+  }
+  .buttons a:first-child button {
+    background-color: #575a5b;
+  }
 }

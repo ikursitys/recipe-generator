@@ -1,12 +1,12 @@
 "use client";
 
-import Badge from "../UI/Badge";
-import Button from "../UI/Button";
-import Card from "../UI/Card";
+import { Badge } from "../UI";
+import { Button } from "../UI";
+import { Card } from "../UI";
+import { Title } from "../UI";
 import { useRequestContext } from "../../context/requestContext";
-import Link from "next/link";
+
 import { ChangeEvent, useState } from "react";
-import Title from "../UI/Title";
 
 import classes from "./Meal.module.css";
 import Image from "next/image";
@@ -26,7 +26,7 @@ const MealSelection = () => {
 
   const changeMealHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    console.log(value);
+
     setEnteredMeal(value);
     setDisabled(false);
   };
@@ -89,7 +89,7 @@ const MealSelection = () => {
       </div>
 
       <div className={classes.button}>
-        <Button handleClick={setMealHandler} disabled={disabled}>
+        <Button onClick={setMealHandler} disabled={disabled}>
           Next
         </Button>
       </div>

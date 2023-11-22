@@ -2,21 +2,21 @@
 
 import { useRequestContext } from "../context/requestContext";
 
-import Card from "./UI/Card";
+import { Card } from "./UI";
 
 import classes from "./GeneratedRecipe.module.css";
-import Button from "./UI/Button";
+import { Button } from "./UI";
 import RecipeCard from "./RecipeCard";
-import { useRecipeContext } from "../context/recipeContext";
+
 import { convertRecipe } from "../utils/recipeConverter";
-import Title from "./UI/Title";
+import { Title } from "./UI";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
-import Modal from "./UI/Modal";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { Modal } from "./UI";
 import { useCompletion } from "ai/react";
-import Loader from "./UI/Loader";
+import { Loader } from "./UI";
 
 const GeneratedRecipe = () => {
   const {
@@ -32,14 +32,10 @@ const GeneratedRecipe = () => {
 
   const ingredientsStr = ingredients.join(", ");
   const restrictionsStr = restrictions.join(", ");
-  const {
-    recipeTitle,
-    recipeIngredients,
-    recipeInstructions,
-    setRecipeTitle,
-    setRecipeIngredients,
-    setRecipeInstructions,
-  } = useRecipeContext();
+
+  const [recipeTitle, setRecipeTitle] = useState<string>("");
+  const [recipeIngredients, setRecipeIngredients] = useState<string[]>([]);
+  const [recipeInstructions, setRecipeInstructions] = useState<string[]>([]);
 
   const session = useSession();
   const router = useRouter();
@@ -52,15 +48,15 @@ const GeneratedRecipe = () => {
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
   const isRecipe = recipeTitle && recipeIngredients && recipeInstructions;
-  const isRequest = meal || ingredients || restrictions || preferences;
+
+  const isPrompt = !!(meal || ingredientsStr || restrictionsStr || preferences);
 
   const prompt = `Write a recipe for ${meal} with ${ingredientsStr}. The meal has to be ${restrictionsStr} and ${preferences}. Write 'Recipe:' before the recipe title. Write '###' after each cooking instruction, please`;
 
-  useEffect(() => {
-    const generateRecipe = async (prompt: string) => {
+  const generateRecipe = useCallback(
+    async (prompt: string) => {
       setIsLoading(true);
       const completion = await complete(prompt);
-      console.log(prompt);
 
       if (!completion) throw new Error("Failed to generate");
 
@@ -70,18 +66,40 @@ const GeneratedRecipe = () => {
       setRecipeTitle(recipeTitle);
       setRecipeIngredients(recipeIngredients);
       setRecipeInstructions(recipeInstructions);
+      // setRecipe({ recipeTitle, recipeIngredients, recipeInstructions });
+      localStorage.setItem(
+        "recipe",
+        JSON.stringify({ recipeTitle, recipeIngredients, recipeInstructions })
+      );
+
       setIsLoading(false);
-    };
-    if (isRequest && prompt) {
+    },
+    [complete, setRecipeTitle, setRecipeIngredients, setRecipeInstructions]
+  );
+
+  useEffect(() => {
+    if (isPrompt) {
       generateRecipe(prompt);
+    } else if (localStorage.getItem("recipe")) {
+      const loadedRecipe = JSON.parse(localStorage.getItem("recipe")!);
+
+      setRecipeTitle(loadedRecipe.recipeTitle);
+      setRecipeIngredients(loadedRecipe.recipeIngredients);
+      setRecipeInstructions(loadedRecipe.recipeInstructions);
     }
   }, []);
+
+  const readyToUse = useMemo(
+    () => isRecipe && !isLoading && isPrompt,
+    [isRecipe, isLoading, isPrompt]
+  );
 
   const onSaveRecipe = async () => {
     if (!session.data) {
       router.push("/login");
       return;
     }
+
     if (isRecipe && session.data) {
       const userData = session.data;
       try {
@@ -95,12 +113,9 @@ const GeneratedRecipe = () => {
             userData,
           }),
         });
-        console.log("saved");
-        const recipe = await response.json();
-        console.log(recipe);
-        setShowAlert(true);
 
-        // router.push("/profile");
+        const recipe = await response.json();
+        setShowAlert(true);
       } catch (e: any) {
         console.log(e);
       }
@@ -117,49 +132,49 @@ const GeneratedRecipe = () => {
   return (
     <section className={classes.recipes}>
       {isLoading && <Loader />}
-      {isRecipe && !isLoading && (
-        <>
-          <Title>
-            <h1>
-              Here&apos;s what we found for your <span>{meal}</span>{" "}
-              {ingredients && (
-                <>
-                  with <span>{ingredientsStr}</span>{" "}
-                </>
-              )}
-              {restrictionsStr && preferences && (
-                <>
-                  considering your <span>{restrictionsStr}</span> and{" "}
-                  <span>{preferences}</span> preferences
-                </>
-              )}
-              {restrictionsStr && !preferences && (
-                <>
-                  considering your <span>{restrictionsStr}</span> preferences
-                </>
-              )}
-              {!restrictionsStr && preferences && (
-                <>
-                  considering your <span>{preferences}</span> preferences
-                </>
-              )}
-            </h1>
-          </Title>
+      {readyToUse && (
+        <Title>
+          <h1>
+            Here&apos;s what we found for your <span>{meal}</span>{" "}
+            {ingredients && (
+              <>
+                with <span>{ingredientsStr}</span>{" "}
+              </>
+            )}
+            {restrictionsStr && preferences && (
+              <>
+                considering your <span>{restrictionsStr}</span> and{" "}
+                <span>{preferences}</span> preferences
+              </>
+            )}
+            {restrictionsStr && !preferences && (
+              <>
+                considering your <span>{restrictionsStr}</span> preferences
+              </>
+            )}
+            {!restrictionsStr && preferences && (
+              <>
+                considering your <span>{preferences}</span> preferences
+              </>
+            )}
+          </h1>
+        </Title>
+      )}
 
-          <Card type="recipe">
-            <RecipeCard
-              title={recipeTitle}
-              ingredients={recipeIngredients}
-              instructions={recipeInstructions}
-            />
-            <div className={classes.buttons}>
-              <Button handleClick={onSaveRecipe}>Save</Button>
-              <Link href="/meal">
-                <Button handleClick={onClear}>Try again</Button>
-              </Link>
-            </div>
-          </Card>
-        </>
+      {isRecipe && !isLoading && (
+        <Card type="recipe">
+          <RecipeCard
+            title={recipeTitle}
+            ingredients={recipeIngredients}
+            instructions={recipeInstructions}
+          />
+          <div className={classes.buttons}>
+            <Button onClick={onSaveRecipe}>Save</Button>
+            <Link href="/meal">
+              <Button onClick={onClear}>Try again</Button>
+            </Link>
+          </div>
+        </Card>
       )}
       {!isRecipe && !isLoading && (
         <>
@@ -178,13 +193,13 @@ const GeneratedRecipe = () => {
         </Title>
         <div className="flex justify-around mt-20">
           <Button
-            handleClick={() => {
-              router.push("/profile/recipes");
+            onClick={() => {
+              router.push("/saved");
             }}
           >
             My recipes
           </Button>
-          <Button handleClick={() => setShowAlert(false)}>Close</Button>
+          <Button onClick={() => setShowAlert(false)}>Close</Button>
         </div>
       </Modal>
     </section>

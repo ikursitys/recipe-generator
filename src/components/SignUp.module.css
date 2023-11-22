@@ -20,3 +20,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.error {
+  color: darkred;
+}
+
+.input-error {
+  background-color: #ffefef;
+  border: 1px solid darkred;
+}

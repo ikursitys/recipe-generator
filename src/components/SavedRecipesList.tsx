@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { useEffect, useState } from "react";
-import Loader from "./UI/Loader";
+import { Loader } from "./UI";
 
 const SavedRecipesList = () => {
   const [recipes, setRecipes] = useState<any[]>([]);
@@ -20,7 +20,6 @@ const SavedRecipesList = () => {
         const recipes = await response.json();
         setRecipes(recipes);
         setIsLoading(false);
-        console.log(recipes);
       } catch (e) {
         console.log(e);
       }

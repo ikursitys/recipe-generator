@@ -1,0 +1,57 @@
+.card {
+  height: 17rem;
+  width: 16rem;
+  border: 1px solid #e6e6e6;
+  margin-left: 1.875rem;
+}
+
+.card:first-child {
+  margin: 0px;
+}
+
+.recipe {
+  height: auto;
+  width: inherit;
+  border: 1px solid #e6e6e6;
+  overflow: auto;
+  padding: 20px;
+  margin: 20px 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    height: 11rem;
+    width: 14rem;
+  }
+}
+
+/* @media screen and (max-width: 600px) {
+  .card {
+    height: 11rem;
+    width: 14rem;
+  }
+} */
+
+@media screen and (max-width: 576px) {
+  .card {
+    height: 5rem;
+    width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .card:first-child {
+    margin: 1rem auto;
+  }
+
+  .recipe {
+    height: auto;
+    width: 100%;
+    border: none;
+
+    margin: 0;
+    padding: 20px;
+    margin-top: 20px;
+  }
+}

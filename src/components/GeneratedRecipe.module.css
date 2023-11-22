@@ -21,3 +21,13 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+@media screen and (max-width: 576px) {
+  .recipes {
+    min-height: 450px;
+    margin: 20px;
+  }
+  .buttons {
+    display: block;
+  }
+}

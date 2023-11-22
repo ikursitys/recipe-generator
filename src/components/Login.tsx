@@ -1,5 +1,5 @@
 import classes from "./Login.module.css";
-import Button from "./UI/Button";
+import { Button } from "./UI";
 import Link from "next/link";
 
 const Login = () => {

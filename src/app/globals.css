@@ -23,6 +23,7 @@
 body {
   color: black;
   background-color: #fff;
+  width: 100%;
 
   font-family: "Open Sans", "Lato", sans-serif;
 }
@@ -45,4 +46,15 @@ h3 {
   display: block;
   width: 400px;
   text-transform: uppercase;
+}
+
+section {
+  min-height: 450px;
+  margin: 4.8rem 3rem;
+}
+
+@media screen and (max-width: 576px) {
+  section {
+    margin: 2rem 2rem;
+  }
 }

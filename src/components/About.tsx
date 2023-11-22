@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Button from "./UI/Button";
-import Title from "./UI/Title";
+import { Button } from "./UI";
+import { Title } from "./UI";
 import classes from "./About.module.css";
 
 const About = () => {

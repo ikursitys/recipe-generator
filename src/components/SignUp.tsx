@@ -1,8 +1,8 @@
 "use client";
 
 import classes from "./SignUp.module.css";
-import Button from "./UI/Button";
-import Title from "./UI/Title";
+import { Button } from "./UI";
+import { Title } from "./UI";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useRecipeContext } from "@/context/recipeContext";
@@ -70,8 +70,10 @@ const SignUp = () => {
           type="text"
           id="name"
           name="name"
+          className={error ? classes["input-error"] : ""}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             setSignUpData({ ...signUpData, name: e.target.value });
+            setError("");
           }}
         />
         <label htmlFor="email">Email</label>
@@ -79,8 +81,10 @@ const SignUp = () => {
           type="email"
           id="email"
           name="email"
+          className={error ? classes["input-error"] : ""}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             setSignUpData({ ...signUpData, email: e.target.value });
+            setError("");
           }}
         />
         <label htmlFor="password">Password</label>
@@ -88,8 +92,10 @@ const SignUp = () => {
           type="password"
           id="password"
           name="password"
+          className={error ? classes["input-error"] : ""}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             setSignUpData({ ...signUpData, password: e.target.value });
+            setError("");
           }}
         />
         <label htmlFor="confirm-password">Confirm your password</label>
@@ -97,11 +103,13 @@ const SignUp = () => {
           type="password"
           id="confirm-password"
           name="confirm-password"
+          className={error ? classes["input-error"] : ""}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             setSignUpData({ ...signUpData, confirmPassword: e.target.value });
+            setError("");
           }}
         />
-        {error && <p>{error}</p>}
+        {error && <p className={classes.error}>{error}</p>}
         <Button type="submit">Submit</Button>
       </form>
     </div>

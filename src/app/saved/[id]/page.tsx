@@ -1,11 +1,11 @@
 "use client";
-import RecipeCard from "@/components/RecipeCard";
+import RecipeCard from "../../../components/RecipeCard";
 
-import Button from "@/components/UI/Button";
-import Card from "@/components/UI/Card";
-import Loader from "@/components/UI/Loader";
-import Modal from "@/components/UI/Modal";
-import Title from "@/components/UI/Title";
+import { Button } from "../../../components/UI";
+import { Card } from "../../../components/UI";
+import { Loader } from "../../../components/UI";
+import { Modal } from "../../../components/UI";
+import { Title } from "../../../components/UI";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -43,7 +43,7 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
         );
 
         const recipe = await response.json();
-        console.log(recipe);
+
         setSavedRecipe(recipe);
         setIsLoading(false);
       } catch (e) {
@@ -65,8 +65,8 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
       });
 
       const res = await response.json();
-      console.log(res);
-      router.push("/profile");
+
+      router.push("/saved");
     } catch (e) {
       console.log(e);
     }
@@ -83,7 +83,7 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
             instructions={savedRecipe.instructions}
           />
           <Button
-            handleClick={() => {
+            onClick={() => {
               setShowConfirmation(true);
             }}
           >
@@ -99,9 +99,9 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
           Are you sure you want to <span>remove this recipe?</span>
         </Title>
         <div className="flex justify-around mt-20">
-          <Button handleClick={onDelete}>Yes</Button>
+          <Button onClick={onDelete}>Yes</Button>
           <Button
-            handleClick={() => {
+            onClick={() => {
               setShowConfirmation(false);
             }}
           >

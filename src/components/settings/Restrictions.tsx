@@ -1,13 +1,14 @@
 "use client";
 
-import Badge from "../../components/UI/Badge";
-import Card from "../../components/UI/Card";
+import { Badge } from "../UI";
+import { Card } from "../UI";
+import { Button } from "../UI";
+import { Title } from "../UI";
+
 import { useRequestContext } from "../../context/requestContext";
 import Link from "next/link";
 import Image from "next/image";
-import { ChangeEvent, useEffect, useState } from "react";
-import Button from "../UI/Button";
-import Title from "../UI/Title";
+import { ChangeEvent, useState } from "react";
 
 import classes from "./Restrictions.module.css";
 import glutenFree from "../../app/img/gluten-free.svg";
@@ -33,7 +34,6 @@ const Restrictions = () => {
   };
 
   const setRestrictionsHandler = () => {
-    console.log(checkedRestrictions);
     setRestrictions(checkedRestrictions);
   };
 

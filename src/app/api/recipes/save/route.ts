@@ -23,7 +23,6 @@ export async function POST(request: NextRequest) {
     await startDb();
     const userExists = await UserModel.findOne({ email: userData.user.email });
 
-    console.log(userExists?._id.toString());
     if (!userExists) {
       return new NextResponse(
         "You are not registered yet! Sign up to continue",

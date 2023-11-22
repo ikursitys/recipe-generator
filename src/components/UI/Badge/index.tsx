@@ -25,4 +25,4 @@ const Badge = (props: BadgeProps) => {
   );
 };
 
-export default Badge;
+export { Badge };
