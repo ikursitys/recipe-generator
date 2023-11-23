@@ -5,7 +5,7 @@ import UserModel from "@/models/UserModel";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const session = await getServerSession(authConfig);
   if (!session || !session.user || !session.user.email) {
     return new NextResponse("Something went wrong...", {

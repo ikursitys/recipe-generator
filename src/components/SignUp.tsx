@@ -46,7 +46,7 @@ const SignUp = () => {
         body: JSON.stringify({ name, email, password }),
       });
       const userInfo = await response.json();
-      console.log(userInfo);
+
       if (recipeTitle && recipeIngredients && recipeInstructions) {
         router.push("/recipe");
       }
