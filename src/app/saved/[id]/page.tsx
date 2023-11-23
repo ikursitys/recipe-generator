@@ -1,13 +1,13 @@
 "use client";
 import RecipeCard from "../../../components/RecipeCard";
-
 import { Button } from "../../../components/UI";
 import { Card } from "../../../components/UI";
 import { Loader } from "../../../components/UI";
 import { Modal } from "../../../components/UI";
 import { Title } from "../../../components/UI";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
 interface PageProps {
   id: string;
@@ -20,6 +20,12 @@ interface SavedRecipe {
 }
 
 const SavedRecipePage = ({ params }: { params: PageProps }) => {
+  const session = useSession();
+
+  if (!session.data) {
+    redirect("/login");
+  }
+
   const [savedRecipe, setSavedRecipe] = useState<SavedRecipe>({
     title: "",
     ingredients: [],
@@ -33,14 +39,9 @@ const SavedRecipePage = ({ params }: { params: PageProps }) => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await fetch(
-          `/api/recipes/${params.id}` +
-            "?" +
-            new URLSearchParams({ id: params.id }),
-          {
-            method: "GET",
-          }
-        );
+        const response = await fetch(`/api/recipes/${params.id}`, {
+          method: "GET",
+        });
 
         const recipe = await response.json();
 
